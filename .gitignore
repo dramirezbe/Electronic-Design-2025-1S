@@ -1,0 +1,48 @@
+# Altium project files to ignore
+
+# History folders in any subdirectory
+**/History/
+
+# Temporary and backup files
+*.TmpPCB
+*.PrjPCBStructure
+*.PrjPcbSettings
+*.DsnWrk
+*.log
+*.bak
+*.~*
+*.tmp
+*.ddb
+
+# Output folders and generated files
+OutputJob/*.OutJob
+__Previews/
+Project Outputs for */*
+Project Logs for */*
+
+# Compiled project files
+*.pcblibdoc
+*.schlibdoc
+*.intlib
+*.compiledpcbdoc
+*.PcbDocPreview
+
+# Altium cache and autosave
+*.schdocpreview
+*.Cache
+*.tmpSchDocPreview
+*.tmpPcbDocPreview
+*.PcbDocPreview
+*.SchDocPreview
+
+# Simulation results
+*.sdf
+*.swc
+*.cir
+*.wav
+*.raw
+*.log
+
+# Windows hidden files
+Thumbs.db
+Desktop.ini
