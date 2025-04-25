@@ -1,1 +1,0 @@
-https://www.st.com/resource/en/datasheet/stm32f410cb.pdf
