@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-09032015-121377";"";
+"REFERENCE";"RG1608N-750-W-T1";"";
+"rs_stock_number";"160424";"";
+"TraceParts.PartTitle";"High Frequency Inductors SMD - 0603 Series - RG1608N-750-W-T1";"";
+"SUPPLIER_NAME";"RS Components";"";
+"Buy_Now";"https://uk.rs-online.com/web/p/products/0160424";"";
+"SUPPLIER";"Susumu Co";"";
+"DESIGN";"High Frequency Inductors SMD - 0603 Series - RG1608N-750-W-T1";"";
+"TraceParts.InstanceId";"10-09032015-12137728F8PW1Z9X5CDJKA3KGIRMJW8";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.1.0";"";
