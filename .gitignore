@@ -23,7 +23,6 @@ Project Logs for */*
 # Compiled project files
 *.pcblibdoc
 *.schlibdoc
-*.intlib
 *.compiledpcbdoc
 *.PcbDocPreview
 

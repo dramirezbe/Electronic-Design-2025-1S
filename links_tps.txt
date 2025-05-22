@@ -1,0 +1,7 @@
+Inductor: https://www.digikey.com/en/products/detail/tdk-corporation/MLZ1608M100WT000/2465148
+
+TPS: https://www.digikey.com/en/products/detail/texas-instruments/TPS55340RTER/3503781?msockid=379a8812a11b66fd3af69dc7a0b46763
+
+536 resistor: https://www.digikey.com/en/products/detail/panasonic-electronic-components/ERJ-3EKF5360V/196400
+
+R 57k6 https://www.digikey.com/en/products/detail/cal-chip-electronics-inc/CAS06F5762CT/25963836
