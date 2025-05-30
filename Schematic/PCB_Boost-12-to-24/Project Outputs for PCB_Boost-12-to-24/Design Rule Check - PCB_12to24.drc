@@ -1,0 +1,82 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc
+Date     : 5/30/2025
+Time     : 6:53:52 PM
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-11(5741.693mil,2014.842mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U1-11(5741.693mil,2014.842mil) on Top Layer And Pad U1-12(5741.693mil,2034.528mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U1-6(5675.158mil,1948.307mil) on Top Layer And Pad U1-17(5685mil,2005mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Track (5055mil,1710.858mil)(5055mil,2395mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (5055mil,1710.858mil)(5060.858mil,1705mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (5055mil,2395mil)(5065mil,2405mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (5060.858mil,1705mil)(6190mil,1705mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (5065mil,2405mil)(6184.142mil,2405mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (6184.142mil,2405mil)(6190mil,2399.142mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (6190mil,1705mil)(6190mil,1730mil) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (6190mil,1730mil)(6190mil,2399.142mil) on Top Layer Dead Copper - Net Not Assigned.
+Rule Violations :11
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=60mil) (Max=60mil) (Preferred=60mil) (InNetClass('12VCLASS'))
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=3mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=12mil) (Max=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=14mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=4mil) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-1(5628.307mil,2034.528mil) on Top Layer And Pad U1-2(5628.307mil,2014.842mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-11(5741.693mil,2014.842mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-9(5741.693mil,1975.472mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-11(5741.693mil,2014.842mil) on Top Layer And Pad U1-12(5741.693mil,2034.528mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-13(5714.528mil,2061.693mil) on Top Layer And Pad U1-14(5694.842mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-14(5694.842mil,2061.693mil) on Top Layer And Pad U1-15(5675.158mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-15(5675.158mil,2061.693mil) on Top Layer And Pad U1-16(5655.472mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-2(5628.307mil,2014.842mil) on Top Layer And Pad U1-3(5628.307mil,1995.158mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-3(5628.307mil,1995.158mil) on Top Layer And Pad U1-4(5628.307mil,1975.472mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-5(5655.472mil,1948.307mil) on Top Layer And Pad U1-6(5675.158mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-6(5675.158mil,1948.307mil) on Top Layer And Pad U1-7(5694.842mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (1.449mil < 4mil) Between Pad U1-7(5694.842mil,1948.307mil) on Top Layer And Pad U1-8(5714.528mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]
+Rule Violations :12
+
+Processing Rule : Silk To Solder Mask (Clearance=0.1mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=2mil) (All),(All)
+   Violation between Silk To Silk Clearance Constraint: (Collision < 2mil) Between Text "TB1" (5419.18mil,2332.506mil) on Top Overlay And Track (5099.646mil,2367.047mil)(5412.638mil,2367.047mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 2mil) Between Text "TB1" (5419.18mil,2332.506mil) on Top Overlay And Track (5412.638mil,1742.462mil)(5412.638mil,2367.047mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+Rule Violations :2
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 25
+Waived Violations : 0
+Time Elapsed        : 00:00:00

@@ -1,0 +1,423 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5/30/2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">6:53:52 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc" class="file"><acronym title="C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc">C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">25</td></tr>
+</table>
+</td>
+</table><a name="IDA10DPXVBG4DBDQ4Q3ZGKIWLI2OD4F1YVRCSEFCHX11JMJTGMTUCO"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHTKN15F4VC0UKACL1XXIET22IBGDFFN0H51OQDGZMIFM3A3RSXYO">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNGQXRO4UDGBEMIGFCSCFYZHL1B3L5MAQH0AFRSBNMK5LMZDBUEB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRQB14S4XCVVPCAJZEZF4CZMKWL3HRW1FBYQ0T0GZWMYND452SDHF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDFGMUZVZQW0XGWIU21KX2AWEFKJTYRGC3WZMXHENP2L0QMAMYS3L">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNXYQV13NULCHL12VY3CDLU0ZTKYHXTHAW2NMXVNEX4IHKNMNYTMH">Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC41NDALZ1QX2CAEYFYJJFVQQ3PCAGPZBRU1BFZHN55QGAHGG4XOK">Width Constraint (Min=60mil) (Max=60mil) (Preferred=60mil) (InNetClass('12VCLASS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDARUDQC2JO0HKBL1OJBJXCSOCRDIV3FWBBIS3B5DLEYAWLAXPHQ5M">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBQLNQQSQ4ZC1GISMOJ03Z2ELYLWUR1XCUSEJACLJZXOQGDCU2WQO">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB125RX422DAXIGM54RGFSG5OMEHHIFBJDT1BAHNXKYJYURMDFI4L">Minimum Annular Ring (Minimum=3mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIDOLQN0XAVGLKIFMY2D3E02RKBDRIMBDJWRPF5CWML0TUKVFCFVM">Hole Size Constraint (Min=12mil) (Max=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLNKVPA0DA02VM1T4LQH1ZF3BCILCHLYJSHVCICEIR55I20JTS0">Hole To Hole Clearance (Gap=14mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4GEPFYPDNXX3ECFOWNDUQTAEHGK0AG4VOW1XAIIPNUFW225ETQZP">Minimum Solder Mask Sliver (Gap=4mil) (All),(All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMYGSY15KDDFEGEFHUIIKRUGNFO0YPNYO0M5ZPLBL0S5SORDOIEAP">Silk To Solder Mask (Clearance=0.1mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDELDX5FEAGSB2JBRHUYEZ0W0MVGWMFZB4WGRQPVJYBY1XBCZOXJ3P">Silk to Silk (Clearance=2mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4OQXL14XEXQYG3FCYZFFMEOA1KUOQ40DJUMDEGJEC3SZNDI0ZUSD">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDS0U1FOWBSM5O5BQQD3PNAXEYP4FCL2K0ZXNTZI4TWHECICSMYQG">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">25</td>
+</tr>
+</table><br><a name="IDRQB14S4XCVVPCAJZEZF4CZMKWL3HRW1FBYQ0T0GZWMYND452SDHF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5720.173mil|Location2.X=5763.213mil|Location1.Y=1986.039mil|Location2.Y=2023.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5720.173mil|Location2.X=5763.213mil|Location1.Y=1986.039mil|Location2.Y=2023.961mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-11(5741.693mil,2014.842mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5720.173mil|Location2.X=5763.213mil|Location1.Y=2005.724mil|Location2.Y=2043.646mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5720.173mil|Location2.X=5763.213mil|Location1.Y=2005.724mil|Location2.Y=2043.646mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-11(5741.693mil,2014.842mil) on Top Layer And Pad U1-12(5741.693mil,2034.528mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5648.323mil|Location2.X=5721.677mil|Location1.Y=1926.787mil|Location2.Y=2041.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5648.323mil|Location2.X=5721.677mil|Location1.Y=1926.787mil|Location2.Y=2041.677mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-6(5675.158mil,1948.307mil) on Top Layer And Pad U1-17(5685mil,2005mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5060mil|Location1.Y=1705.858mil|Location2.Y=2400mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5060mil|Location1.Y=1705.858mil|Location2.Y=2400mil|Absolute=True">Un-Routed Net Constraint: Track (5055mil,1710.858mil)(5055mil,2395mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5065.858mil|Location1.Y=1700mil|Location2.Y=1715.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5065.858mil|Location1.Y=1700mil|Location2.Y=1715.858mil|Absolute=True">Un-Routed Net Constraint: Track (5055mil,1710.858mil)(5060.858mil,1705mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5070mil|Location1.Y=2390mil|Location2.Y=2410mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5050mil|Location2.X=5070mil|Location1.Y=2390mil|Location2.Y=2410mil|Absolute=True">Un-Routed Net Constraint: Track (5055mil,2395mil)(5065mil,2405mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.858mil|Location2.X=6195mil|Location1.Y=1700mil|Location2.Y=1710mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.858mil|Location2.X=6195mil|Location1.Y=1700mil|Location2.Y=1710mil|Absolute=True">Un-Routed Net Constraint: Track (5060.858mil,1705mil)(6190mil,1705mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5060mil|Location2.X=6189.142mil|Location1.Y=2400mil|Location2.Y=2410mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5060mil|Location2.X=6189.142mil|Location1.Y=2400mil|Location2.Y=2410mil|Absolute=True">Un-Routed Net Constraint: Track (5065mil,2405mil)(6184.142mil,2405mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6179.142mil|Location2.X=6195mil|Location1.Y=2394.142mil|Location2.Y=2410mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6179.142mil|Location2.X=6195mil|Location1.Y=2394.142mil|Location2.Y=2410mil|Absolute=True">Un-Routed Net Constraint: Track (6184.142mil,2405mil)(6190mil,2399.142mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6185mil|Location2.X=6195mil|Location1.Y=1700mil|Location2.Y=1735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6185mil|Location2.X=6195mil|Location1.Y=1700mil|Location2.Y=1735mil|Absolute=True">Un-Routed Net Constraint: Track (6190mil,1705mil)(6190mil,1730mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6185mil|Location2.X=6195mil|Location1.Y=1725mil|Location2.Y=2404.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6185mil|Location2.X=6195mil|Location1.Y=1725mil|Location2.Y=2404.142mil|Absolute=True">Un-Routed Net Constraint: Track (6190mil,1730mil)(6190mil,2399.142mil) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4GEPFYPDNXX3ECFOWNDUQTAEHGK0AG4VOW1XAIIPNUFW225ETQZP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=4mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.442mil|Location2.X=5614.692mil|Location1.Y=2022.06mil|Location2.Y=2027.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.442mil|Location2.X=5614.692mil|Location1.Y=2022.06mil|Location2.Y=2027.31mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-1(5628.307mil,2034.528mil) on Top Layer And Pad U1-2(5628.307mil,2014.842mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5722.828mil|Location2.X=5728.078mil|Location1.Y=2002.375mil|Location2.Y=2007.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5722.828mil|Location2.X=5728.078mil|Location1.Y=2002.375mil|Location2.Y=2007.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-11(5741.693mil,2014.842mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5755.308mil|Location2.X=5760.558mil|Location1.Y=1982.69mil|Location2.Y=1987.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5755.308mil|Location2.X=5760.558mil|Location1.Y=1982.69mil|Location2.Y=1987.94mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-10(5741.693mil,1995.158mil) on Top Layer And Pad U1-9(5741.693mil,1975.472mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5755.308mil|Location2.X=5760.558mil|Location1.Y=2022.06mil|Location2.Y=2027.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5755.308mil|Location2.X=5760.558mil|Location1.Y=2022.06mil|Location2.Y=2027.31mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-11(5741.693mil,2014.842mil) on Top Layer And Pad U1-12(5741.693mil,2034.528mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5702.06mil|Location2.X=5707.31mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5702.06mil|Location2.X=5707.31mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-13(5714.528mil,2061.693mil) on Top Layer And Pad U1-14(5694.842mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.375mil|Location2.X=5687.625mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.375mil|Location2.X=5687.625mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-14(5694.842mil,2061.693mil) on Top Layer And Pad U1-15(5675.158mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.69mil|Location2.X=5667.94mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.69mil|Location2.X=5667.94mil|Location1.Y=2075.308mil|Location2.Y=2080.558mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-15(5675.158mil,2061.693mil) on Top Layer And Pad U1-16(5655.472mil,2061.693mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.442mil|Location2.X=5614.692mil|Location1.Y=2002.375mil|Location2.Y=2007.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5609.442mil|Location2.X=5614.692mil|Location1.Y=2002.375mil|Location2.Y=2007.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-2(5628.307mil,2014.842mil) on Top Layer And Pad U1-3(5628.307mil,1995.158mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5641.922mil|Location2.X=5647.172mil|Location1.Y=1982.69mil|Location2.Y=1987.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5641.922mil|Location2.X=5647.172mil|Location1.Y=1982.69mil|Location2.Y=1987.94mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-3(5628.307mil,1995.158mil) on Top Layer And Pad U1-4(5628.307mil,1975.472mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.69mil|Location2.X=5667.94mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.69mil|Location2.X=5667.94mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-5(5655.472mil,1948.307mil) on Top Layer And Pad U1-6(5675.158mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.375mil|Location2.X=5687.625mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.375mil|Location2.X=5687.625mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-6(5675.158mil,1948.307mil) on Top Layer And Pad U1-7(5694.842mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5702.06mil|Location2.X=5707.31mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5702.06mil|Location2.X=5707.31mil|Location1.Y=1961.922mil|Location2.Y=1967.172mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.449mil &lt; 4mil) Between Pad U1-7(5694.842mil,1948.307mil) on Top Layer And Pad U1-8(5714.528mil,1948.307mil) on Top Layer [Top Solder] Mask Sliver [1.449mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDELDX5FEAGSB2JBRHUYEZ0W0MVGWMFZB4WGRQPVJYBY1XBCZOXJ3P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=2mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5418.013mil|Location2.X=5420.346mil|Location1.Y=2366.328mil|Location2.Y=2368.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5418.013mil|Location2.X=5420.346mil|Location1.Y=2366.328mil|Location2.Y=2368.661mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 2mil) Between Text "TB1" (5419.18mil,2332.506mil) on Top Overlay And Track (5099.646mil,2367.047mil)(5412.638mil,2367.047mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5418.013mil|Location2.X=5420.346mil|Location1.Y=2366.328mil|Location2.Y=2368.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Schematic\PCB_Boost-12-to-24\PCB_12to24.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5418.013mil|Location2.X=5420.346mil|Location1.Y=2366.328mil|Location2.Y=2368.661mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 2mil) Between Text "TB1" (5419.18mil,2332.506mil) on Top Overlay And Track (5412.638mil,1742.462mil)(5412.638mil,2367.047mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
