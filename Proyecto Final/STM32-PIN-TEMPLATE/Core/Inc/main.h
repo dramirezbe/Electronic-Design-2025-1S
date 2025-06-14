@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -57,6 +59,29 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define ESP_TX_Pin GPIO_PIN_2
+#define ESP_TX_GPIO_Port GPIOA
+#define ESP_RX_Pin GPIO_PIN_3
+#define ESP_RX_GPIO_Port GPIOA
+#define T3C1_MOTOR_PWM_Pin GPIO_PIN_6
+#define T3C1_MOTOR_PWM_GPIO_Port GPIOA
+#define T3C2_R_LED_Pin GPIO_PIN_7
+#define T3C2_R_LED_GPIO_Port GPIOA
+#define T3C3_G_LED_Pin GPIO_PIN_0
+#define T3C3_G_LED_GPIO_Port GPIOB
+#define T3C4_B_LED_Pin GPIO_PIN_1
+#define T3C4_B_LED_GPIO_Port GPIOB
+#define USB_TX_Pin GPIO_PIN_9
+#define USB_TX_GPIO_Port GPIOA
+#define USB_RX_Pin GPIO_PIN_10
+#define USB_RX_GPIO_Port GPIOA
+#define SDA_OLED_Pin GPIO_PIN_7
+#define SDA_OLED_GPIO_Port GPIOB
+#define SCL_OLED_Pin GPIO_PIN_8
+#define SCL_OLED_GPIO_Port GPIOB
+#define DHT11_PIN_Pin GPIO_PIN_9
+#define DHT11_PIN_GPIO_Port GPIOB
+#define DHT11_PIN_EXTI_IRQn EXTI4_15_IRQn
 
 /* USER CODE BEGIN Private defines */
 
