@@ -1,1 +1,1 @@
-# Dise-o-Electronico-2025-1S
+# Electronic Design 2025-1S
