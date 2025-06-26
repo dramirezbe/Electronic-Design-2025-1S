@@ -202,6 +202,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MIGXQESW
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Project-Files\Design Rule Check - PCB_v1.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
