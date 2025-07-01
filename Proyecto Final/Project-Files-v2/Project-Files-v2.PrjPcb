@@ -219,6 +219,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BDNKAARC
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Project-Files-v2\Design Rule Check - PBC-full.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
