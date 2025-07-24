@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Proyecto Final\Project-Files-v2\PBC-full.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=pbc-full-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=pbc-full-slotholes.txt|DrillLayers=gtl,gbl

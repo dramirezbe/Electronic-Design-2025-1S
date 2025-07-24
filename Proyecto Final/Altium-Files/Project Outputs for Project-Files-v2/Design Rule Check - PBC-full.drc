@@ -1,0 +1,72 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\david\OneDrive\Documentos\GIT\Electronic-Design-2025-1S\Proyecto Final\Project-Files-v2\PBC-full.PcbDoc
+Date     : 7/3/2025
+Time     : 7:14:27 PM
+
+Processing Rule : Clearance Constraint (Gap=0.152mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.762mm) (Preferred=0.762mm) (InNetClass('5V_1A'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.152mm) (Max=1.524mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=1.143mm) (Preferred=1.143mm) (InNetClass('12V_2A'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.381mm) (Max=0.508mm) (Preferred=0.508mm) (InNet('3V3_ESP32'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.762mm) (Preferred=0.762mm) (InNet('3V3'))
+Rule Violations :0
+
+Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
+Rule Violations :0
+
+Processing Rule : Routing Via (MinHoleWidth=0.305mm) (MaxHoleWidth=25.4mm) (PreferredHoleWidth=0.305mm) (MinWidth=0.457mm) (MaxWidth=25.4mm) (PreferedWidth=0.457mm) (All)
+Rule Violations :0
+
+Processing Rule : Differential Pairs Uncoupled Length using the Gap Constraints (Min=0.152mm) (Max=0.152mm) (Prefered=0.152mm)  and Width Constraints (Min=0.279mm) (Max=0.787mm) (Prefered=0.787mm) (InDifferentialPairClass('USB_2.0_MCU') and InDifferentialPairClass('USB_2.0_ESP'))
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.254mm) (Max=25.4mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.102mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.025mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.025mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Matched Lengths(Tolerance=1.27mm) (InDifferentialPairClass('USB_2.0_MCU') and InDifferentialPairClass('USB_2.0_ESP'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Waived Violations : 0
+Time Elapsed        : 00:00:01
