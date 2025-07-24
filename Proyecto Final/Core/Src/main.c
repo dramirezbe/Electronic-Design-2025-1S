@@ -44,6 +44,7 @@ ADC_HandleTypeDef hadc;
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart1;
@@ -61,12 +62,42 @@ static void MX_I2C1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/**
+  * @brief  Cambia el duty cycle de un canal PWM del TIM3.
+  * @param  htim: Puntero al manejador (handle) del TIM3.
+  * @param  Channel: Canal del TIM3 a configurar (ej. TIM_CHANNEL_1, TIM_CHANNEL_2, etc.).
+  * @param  DutyCycle_Percentage: Valor del duty cycle en porcentaje (0 a 100).
+  * @retval None
+  */
+void Set_PWM_DutyCycle(TIM_HandleTypeDef *htim, uint32_t Channel, float DutyCycle_Percentage)
+{
+    // Asegurarse de que el porcentaje esté dentro del rango válido (0-100)
+    if (DutyCycle_Percentage < 0.0f) {
+        DutyCycle_Percentage = 0.0f;
+    } else if (DutyCycle_Percentage > 100.0f) {
+        DutyCycle_Percentage = 100.0f;
+    }
+
+    // Calcular el valor del "Pulse" basado en el porcentaje y el periodo del timer
+    // htim->Init.Period contiene el valor de ARR (Auto-Reload Register) - 1.
+    // El periodo real del contador es (htim->Init.Period + 1).
+    // Sin embargo, para el cálculo del CCRx, se usa directamente htim->Init.Period
+    // como el valor máximo para 100% de duty cycle, o (htim->Init.Period + 1) si estás usando la configuración
+    // del timer para que el ARR se cuente como el último valor.
+    // Para la mayoría de las configuraciones típicas en STM32, Period es el valor máximo para CCRx.
+    uint32_t pulse_value = (uint32_t)((DutyCycle_Percentage / 100.0f) * htim->Init.Period);
+
+    // Actualizar el registro de comparación del canal PWM
+    __HAL_TIM_SET_COMPARE(htim, Channel, pulse_value);
+}
+
 
 /* USER CODE END 0 */
 
@@ -104,6 +135,7 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -263,6 +295,52 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 71;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
 
 }
 
@@ -435,6 +513,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(DHT11_PIN_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

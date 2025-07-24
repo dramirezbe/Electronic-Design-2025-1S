@@ -31,7 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "DHT11.h"
+#include "ssd1306.h"
+#include "ssd1306_fonts.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -83,6 +85,7 @@ void Error_Handler(void);
 #define SDA_OLED_GPIO_Port GPIOB
 #define DHT11_PIN_Pin GPIO_PIN_9
 #define DHT11_PIN_GPIO_Port GPIOB
+#define DHT11_PIN_EXTI_IRQn EXTI4_15_IRQn
 
 /* USER CODE BEGIN Private defines */
 
